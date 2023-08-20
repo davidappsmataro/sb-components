@@ -44,3 +44,10 @@ export const CustomColor: Story={
         fontColor: '#CCC134'
     }
 };
+export const CustomBackgroundColor: Story={
+    args: { //aquí tenemos que pasar las props
+        label: 'CustomColor Label', //esta es obligatoria en las props del componente
+        fontColor: '#CCC134',
+        backgroundColor: 'black' 
+    }
+};

@@ -2,11 +2,11 @@ import "./MyLabel.css";
 //TODO: si mofificamos las interfaces entonces hay que cancelar la ejecución y volverlo a ejecutar
 //para que las detecte.
 //Las explicaciones de las props en el docs se tienen que especificar entre comentarios como aparecen debajo.
-//  (barra asterisco asterisco /** + intro para que quede igual) 
+//  (barra asterisco asterisco /** + intro para que quede igual)
 interface Props {
-    /**
-     * Texto para mostrar
-     */
+  /**
+   * Texto para mostrar
+   */
   label: string;
   /**
    * Tamaño del label
@@ -19,14 +19,31 @@ interface Props {
   /**
    *  Color del texto
    */
-  color?: 'text-primary' | 'text-secondary' | 'text-tertiary';
+  color?: "text-primary" | "text-secondary" | "text-tertiary";
   /**
-   *  Font Color 
+   *  Font Color
    */
   fontColor?: string; //color del span
+  /**
+   *  Background color
+   */
+  backgroundColor?: string;
 }
 
-
-export const MyLabel = ({ label, size='normal', allCaps=false, color='text-primary', fontColor }: Props) => {
-  return <span className={`${size} ${color}`} style={{color: fontColor}}>{allCaps ? label.toLocaleUpperCase() : label}</span>;
+export const MyLabel = ({
+  label = "No LAbel",
+  size = "normal",
+  allCaps = false,
+  color = "text-primary",
+  fontColor,
+  backgroundColor = "transparent",
+}: Props) => {
+  return (
+    <span
+      className={`${size} ${color}`}
+      style={{ color: fontColor, backgroundColor }}
+    >
+      {allCaps ? label.toLocaleUpperCase() : label}
+    </span>
+  );
 };
