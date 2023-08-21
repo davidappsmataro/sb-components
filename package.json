@@ -1,19 +1,42 @@
 {
-  "name": "my-storybook",
-  "private": true,
-  "version": "0.0.0",
+  "name": "dpl-my-storybook-components",
+  "version": "0.1.0",
+  "private": false,
+  "license": "MIT",
+  "typings": "dist/main.d.ts",
+  "main": "dist/main.js",
+  "homepage": "https://www.appsmataro.com",
+  "repository": {
+    "url": "https://github.com/davidappsmataro/sb-components",
+    "type": "git"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "typescript": ">=4.0.0"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run clean && npm run copy-files",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_544da4bb43388ac"
+    "chromatic": "npx chromatic --project-token=chpt_544da4bb43388ac",
+    "clean": "rimraf dist/ && tsc",
+    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
   },
   "dependencies": {
-    "react": "^18.2.0",
+    "react": ">=16",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
@@ -31,14 +54,25 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "chromatic": "^6.22.0",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.13",
+    "rimraf": "^5.0.1",
+    "semantic-release": "^21.0.9",
     "storybook": "^7.3.2",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "my-storybook@0.0.0"
+  "_id": "my-storybook@0.0.0",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ]
 }

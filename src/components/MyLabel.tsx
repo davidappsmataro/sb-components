@@ -3,7 +3,7 @@ import "./MyLabel.css";
 //para que las detecte.
 //Las explicaciones de las props en el docs se tienen que especificar entre comentarios como aparecen debajo.
 //  (barra asterisco asterisco /** + intro para que quede igual)
-interface Props {
+export interface Props {
   /**
    * Texto para mostrar
    */
